@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import "@radix-ui/themes/styles.css";
 import "./globals.css";
+import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
+import { Theme } from "@radix-ui/themes";
 import NavBar from "./NavBar";
 
-const inter = Inter({ subsets: ["latin"] });
+const monsterrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,11 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <NavBar />
-        <main>
-          {children}
-        </main>
+      <body className={monsterrat.className}>
+        <Theme>
+          <NavBar />
+          <main>
+            {children}
+          </main>
+        </Theme>
       </body>
     </html>
   );
